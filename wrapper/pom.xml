@@ -11,10 +11,14 @@
   <name>Neo4j Procedure Template</name>
   <description>A template project for building a Neo4j Procedure</description>
   <repositories>
+    <!-- This repository will only include our compiled Eta code.
+        -->
     <repository>
       <id>my</id>
       <url>file:///${project.basedir}/.localmaven</url>
     </repository>
+    <!-- Add the default repository as well. This was needed for me in
+         order to make maven happy. -->
     <repository>
       <id>default</id>
       <url>https://repo.maven.apache.org/maven2</url>
@@ -26,7 +30,9 @@
   </properties>
   <dependencies>
     <dependency>
-      <!-- This gives us the Procedure API our runtime code uses.
+      <!-- From the neo4j example:
+
+           This gives us the Procedure API our runtime code uses.
            We have a `provided` scope on it, because when this is
            deployed in a Neo4j Instance, the API will be provided
            by Neo4j. If you add non-Neo4j dependencies to this
@@ -81,7 +87,9 @@
         </configuration>
       </plugin>
       <plugin>
-        <!-- This generates a jar-file with our procedure code,
+        <!-- From the neo4j example:
+
+             This generates a jar-file with our procedure code,
              plus any dependencies marked as `compile` scope.
              This should then be deployed in the `plugins` directory
              of each Neo4j instance in your deployment.

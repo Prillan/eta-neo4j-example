@@ -29,3 +29,15 @@ neo4j-sh (?)$ return example.fib(12);
 1 row
 55 ms
 ```
+
+## Gotchas
+
+- Eta currently does not support annotations, so we need a Java
+  wrapper library.
+- Make sure the Eta project is compiled as an executable, otherwise
+  the Eta runtime won't be included and execution of the user function
+  will fail with `Failed to invoke function 'example.fib': Caused by:
+  java.lang.NoClassDefFoundError: eta/runtime/stg/StgClosure`.
+- Use a very simple local maven repository to store the produced `jar`
+  file, this makes sure that it's included in the next `jar` file that
+  gets included by neo4j.

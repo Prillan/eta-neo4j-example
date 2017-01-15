@@ -1,5 +1,8 @@
 package example;
 
+/*
+ * Import our exported Eta class.
+ */
 import eta.example.Exported;
 
 import java.util.List;
@@ -9,7 +12,7 @@ import org.neo4j.procedure.Name;
 import org.neo4j.procedure.UserFunction;
 
 /**
- * This is an example how you can create a simple user-defined function for Neo4j.
+ * This class will wrap the Eta class.
  */
 public class Wrapper
 {
@@ -20,6 +23,7 @@ public class Wrapper
         if (n == null) {
             return null;
         }
+
         Exported e = new Exported();
         return e.fib(n.intValue());
     }
