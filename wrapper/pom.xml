@@ -13,7 +13,7 @@
   <repositories>
     <repository>
       <id>my</id>
-      <url>file:///${user.home}/.localmaven</url>
+      <url>file:///${project.basedir}/.localmaven</url>
     </repository>
     <repository>
       <id>default</id>
