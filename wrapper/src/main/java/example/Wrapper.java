@@ -16,6 +16,8 @@ import org.neo4j.procedure.UserFunction;
  */
 public class Wrapper
 {
+    static Exported e = new Exported();
+
     @UserFunction
     @Description("example.fib(int) - Fibonacci, obviously.")
     public Number fib(
@@ -24,7 +26,6 @@ public class Wrapper
             return null;
         }
 
-        Exported e = new Exported();
         return e.fib(n.intValue());
     }
 }
